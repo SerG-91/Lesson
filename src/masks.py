@@ -1,4 +1,4 @@
-def get_mask_card_number(number: int) -> str:
+def get_mask_card_number(number: str) -> str:
     """Функция создания маски типа хххх хх** **** хххх для числа"""
 
     number_str = str(number)
@@ -15,10 +15,12 @@ def get_mask_card_number(number: int) -> str:
     return f"{first_four} {second_four} {third_four} {last_four}"
 
 
-def get_mask_account(number: int) -> str:
+def get_mask_account(number: str) -> str:
     """Функция создания маски типа **хххх для числа"""
 
     number_str = str(number)
     last_chars = number_str[-4:]
 
     return f"**{last_chars}"
+
+
