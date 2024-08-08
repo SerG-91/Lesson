@@ -4,7 +4,7 @@ list_data = [
 ]
 
 
-def filter_by_state(values: list, filter_by: str) -> list:
+def filter_by_state(values: list, filter_by: str = "EXECUTED") -> list:
     """Функция фильтрации данных по ключу"""
 
     new_list = [i for i in values if i["state"] == filter_by]
@@ -22,10 +22,10 @@ list = [
 ]
 
 
-def sort_by_date(value: list) -> list:
+def sort_by_date(value: list, revers: bool = True) -> list:
     """Функция сортировки даты"""
 
-    return sorted(value, reverse=True, key=lambda x: x["date"])
+    return sorted(value, reverse=revers, key=lambda x: x["date"])
 
 
 print(sort_by_date(list))
