@@ -22,5 +22,3 @@ def get_mask_account(number: str) -> str:
     last_chars = number_str[-4:]
 
     return f"**{last_chars}"
-
-
