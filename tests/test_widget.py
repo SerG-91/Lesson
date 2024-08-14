@@ -16,9 +16,11 @@ from src.widget import get_data, mask_account_card
 )
 def test_mask_account_card(account_card: str, new_account_card: str) -> None:
     """Тест функции маскировки"""
+
     assert mask_account_card(account_card) == new_account_card
 
 
 def test_get_data(data: str) -> None:
     """Тест функции маскироки даты"""
+
     assert get_data("2024-03-11T02:26:18.671407") == data

@@ -15,6 +15,7 @@ from src.masks import get_mask_account, get_mask_card_number
 )
 def test_get_mask_card_number(card_number: str, new_number: str) -> None:
     """Тест функции маскитовки карты"""
+
     assert get_mask_card_number(card_number) == new_number
 
 
@@ -30,4 +31,5 @@ def test_get_mask_card_number(card_number: str, new_number: str) -> None:
 )
 def test_get_mask_account(mask_account: str, new_mask_account: str) -> None:
     """Тест функции маскировки счета"""
+
     assert get_mask_account(mask_account) == new_mask_account
