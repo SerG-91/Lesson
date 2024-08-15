@@ -1,7 +1,7 @@
-from typing import Generator, Any
+from typing import Any
 
 
-def filter_by_currency(transactions: list, currency_code: str = "USD") -> Generator[Any, Any, Any]:
+def filter_by_currency(transactions: list, currency_code: str = "USD") -> Any:
     """Функция выдает список транзакции, где валюта соответствует заданной."""
 
     if transactions == []:
@@ -13,7 +13,7 @@ def filter_by_currency(transactions: list, currency_code: str = "USD") -> Genera
             yield ("Транзакции с таким кодом нет")
 
 
-def transaction_descriptions(transactions: list) -> Generator[Any, Any, Any]:
+def transaction_descriptions(transactions: list) -> Any:
     """Функция принимает список словарей с транзакциями и возвращает описание каждой операции по очереди."""
 
     if not transactions:
@@ -22,7 +22,7 @@ def transaction_descriptions(transactions: list) -> Generator[Any, Any, Any]:
         yield description_operation["description"]
 
 
-def card_number_generator(start: int, stop: int) -> Generator[str, Any, None]:
+def card_number_generator(start: int, stop: int) -> Any:
     """Функция может сгенерировать номера карт в заданном диапазоне
     от 0000 0000 0000 0001 до 9999 9999 9999 9999."""
 
