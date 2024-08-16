@@ -1,3 +1,4 @@
+import sys
 from typing import Any
 
 
@@ -5,12 +6,12 @@ def filter_by_currency(transactions: list, currency_code: str = "USD") -> Any:
     """Функция выдает список транзакции, где валюта соответствует заданной."""
 
     if transactions == []:
-        yield ("Нет транзакций")
+        sys.exit("Нет транзакций")
     for i in transactions:
         if i["operationAmount"]["currency"]["code"] == currency_code:
             yield i
         else:
-            yield ("Транзакции с таким кодом нет")
+            sys.exit("В транзакциях нет такого кода")
 
 
 def transaction_descriptions(transactions: list) -> Any:

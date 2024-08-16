@@ -71,7 +71,7 @@ def test_filter_by_currency() -> Any:
 def test_filter_by_currency_zero() -> Any:
     """Тест функции фильтрации когда транзакций нет"""
 
-    with pytest.raises(AssertionError, match="Нет транзакций") as exc_info:
+    with pytest.raises(SystemExit, match="Нет транзакций") as exc_info:
         generator = filter_by_currency([])
         assert next(generator) == exc_info
 
@@ -79,7 +79,7 @@ def test_filter_by_currency_zero() -> Any:
 def test_filter_by_currency_eu() -> Any:
     """Тест функции фильтрации когда кода транзакций нет"""
 
-    with pytest.raises(AssertionError, match="Транзакции с таким кодом нет") as exc_info:
+    with pytest.raises(SystemExit, match="В транзакциях нет такого кода") as exc_info:
         generator = filter_by_currency(transactions, "EU")
         assert next(generator) == exc_info
 
