@@ -1,26 +1,27 @@
 def get_mask_card_number(number: str) -> str:
     """Функция создания маски типа хххх хх** **** хххх для числа"""
 
-    number_str = str(number)
-
-    if len(number_str) != 16:
+    if len(str(number)) != 16:
         return "не корректно введен номер"
-
-    first_four = number_str[:4]
-    second_four = number_str[4:6] + "*" * 2
-    third_four = "*" * 4
-    # Get the last four digits of the number
-    last_four = number_str[-4:]
-
-    return f"{first_four} {second_four} {third_four} {last_four}"
+    else:
+        first_four = number[:4]
+        second_four = number[4:6] + "*" * 2
+        third_four = "*" * 4
+        # Get the last four digits of the number
+        last_four = number[-4:]
+        return f"{first_four} {second_four} {third_four} {last_four}"
 
 
 def get_mask_account(number: str) -> str:
     """Функция создания маски типа **хххх для числа"""
 
-    number_str = str(number)
-    last_chars = number_str[-4:]
+    if len(str(number)) < 20:
+        return "не корректно введен номер"
+    else:
+        number_str = str(number)
+        last_chars = number_str[-4:]
+        return f"**{last_chars}"
 
-    return f"**{last_chars}"
 
-
+print(get_mask_card_number("1234567890123456"))
+print(get_mask_account("12345678901234567890"))
