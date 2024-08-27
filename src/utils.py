@@ -1,9 +1,11 @@
 import json
 from typing import Any
 
-from src.external_api import convert_from_usd_to_rub, convert_from_eur_to_rub
+from src.external_api import convert_from_eur_to_rub, convert_from_usd_to_rub
 
-def read_json(data):
+
+def get_read_json(data: str) -> Any:
+    """Принимает путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     try:
         with open(data, "r", encoding="utf-8") as f:
             new_data = json.load(f)
@@ -16,9 +18,9 @@ def read_json(data):
         return []
 
 
-
 def transaction_amount(transactions: dict, transaction_id: int) -> Any:
-    """Функция принимает на вход список транзакций и id транзакции которую необходимо конвертировать и возвращает транзакцию в рублях"""
+    """Функция принимает на вход список транзакций и id транзакции которую необходимо конвертировать и
+    возвращает транзакцию в рублях"""
     for trans in transactions:
         if trans.get("id") == transaction_id:
             if trans["operationAmount"]["currency"]["code"] == "RUB":
@@ -33,7 +35,11 @@ def transaction_amount(transactions: dict, transaction_id: int) -> Any:
                 rub_amount = convert_from_eur_to_rub(eur_amount)
                 return round(rub_amount, 3)
 
+
 src_data = "../data/operations.json"
-print(read_json(src_data))
-transactions_list = read_json(src_data)
-print(transaction_amount(transactions_list,41428829))
+
+print(get_read_json(src_data))
+
+transactions_list = get_read_json(src_data)
+
+print(transaction_amount(transactions_list, 41428829))
