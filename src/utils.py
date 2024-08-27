@@ -42,4 +42,4 @@ print(get_read_json(src_data))
 
 transactions_list = get_read_json(src_data)
 
-print(transaction_amount(transactions_list, 41428829))
+print(transaction_amount(transactions_list, 939719570))
