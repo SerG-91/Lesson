@@ -1,7 +1,7 @@
 import json
 from typing import Any
 
-from src.external_api import convert_from_eur_to_rub, convert_from_usd_to_rub
+from src.external_api import convert_from_to_rub
 
 
 def get_read_json(data: str) -> Any:
@@ -26,14 +26,9 @@ def transaction_amount(transactions: dict, transaction_id: int) -> Any:
             if trans["operationAmount"]["currency"]["code"] == "RUB":
                 amount = trans["operationAmount"]["amount"]
                 return amount
-            elif trans["operationAmount"]["currency"]["code"] == "USD":
-                usd_amount = trans["operationAmount"]["amount"]
-                rub_amount = convert_from_usd_to_rub(usd_amount)
-                return round(rub_amount, 3)
-            elif trans["operationAmount"]["currency"]["code"] == "EUR":
-                eur_amount = trans["operationAmount"]["amount"]
-                rub_amount = convert_from_eur_to_rub(eur_amount)
-                return round(rub_amount, 3)
+            else:
+                transaction = convert_from_to_rub(trans)
+                return round(transaction, 2)
 
 
 src_data = "../data/operations.json"
@@ -42,4 +37,4 @@ print(get_read_json(src_data))
 
 transactions_list = get_read_json(src_data)
 
-print(transaction_amount(transactions_list, 939719570))
+print(transaction_amount(transactions_list, 41428829))
