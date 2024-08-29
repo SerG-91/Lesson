@@ -33,7 +33,7 @@ def transaction_amount(transactions: dict, transaction_id: int) -> Any:
 
 src_data = "../data/operations.json"
 
-print(get_read_json(src_data))
+# print(get_read_json(src_data)[0])
 
 transactions_list = get_read_json(src_data)
 

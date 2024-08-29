@@ -8,6 +8,7 @@ load_dotenv()
 
 api_key = os.getenv("api_key")
 
+
 def convert_from_to_rub(transaction: Any) -> Any:
     """Функция конвертации в рубли"""
     amount = transaction["operationAmount"]["amount"]
@@ -18,8 +19,3 @@ def convert_from_to_rub(transaction: Any) -> Any:
     response = requests.get(url, headers=headers, data=payload)
     print(response)
     return response.json()["result"]
-
-
-
-
-
