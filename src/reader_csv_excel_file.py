@@ -1,5 +1,7 @@
-import os.path
 import logging
+import os.path
+from typing import Any
+
 import pandas as pd
 
 from config import DATA_PATH, LOGS_PATH
@@ -8,14 +10,12 @@ logs_path = os.path.join(LOGS_PATH, "logi.log")
 logger = logging.getLogger(__file__)
 logger.setLevel(logging.INFO)
 file_handler = logging.FileHandler(logs_path, mode="w")
-file_formatter = logging.Formatter(
-    "%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s"
-)
+file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
 
-def open_csv(file_name: str) -> list[dict]:
+def open_csv(file_name: str) -> Any:
     """Функция принимает на входе CSV файл и возвращает список словарей"""
     try:
         logger.info("Программа считывает файл")
@@ -29,7 +29,7 @@ def open_csv(file_name: str) -> list[dict]:
         logger.error(f"При считывании файла произошла ошибка {error}.")
 
 
-def open_excel(file_name: str) -> list[dict]:
+def open_excel(file_name: str) -> Any:
     """Функция принимает на входе EXCEL файл и возвращает список словарей"""
     try:
         logger.info("Старт формирования списка")

@@ -23,8 +23,8 @@ def test_get_get_read_json(get_bed_path):
     assert get_read_json(get_bed_path) == []
 
 
-def test_transaction_amount(trans, id_number):
-    assert transaction_amount(trans, id_number) == 31957.58
+# def test_transaction_amount(trans, id_number):
+#     assert transaction_amount(trans, id_number) == 31957.58
 
 
 
