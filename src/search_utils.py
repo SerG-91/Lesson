@@ -201,7 +201,7 @@ def filter_by_description(data_list: list[dict], str_search: str) -> list[dict]:
     return new_list
 
 
-print(filter_by_description(list_trans, 'Перевод со'))
+print(filter_by_description(list_trans, 'Открытие'))
 
 
 def count_description(data_list: list[dict], list_category) -> dict:
