@@ -31,10 +31,10 @@ def transaction_amount(transactions: dict, transaction_id: int) -> Any:
                 return round(transaction, 2)
 
 
-src_data = "../data/operations.json"
-
-print(get_read_json(src_data))
-
-transactions_list = get_read_json(src_data)
-
-print(transaction_amount(transactions_list, 41428829))
+# src_data = "../data/operations.json"
+#
+# print(get_read_json(src_data))
+#
+# transactions_list = get_read_json(src_data)
+#
+# print(transaction_amount(transactions_list, 41428829))

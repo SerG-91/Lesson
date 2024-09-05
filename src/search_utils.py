@@ -201,10 +201,11 @@ def filter_by_description(data_list: list[dict], str_search: str) -> list[dict]:
     return new_list
 
 
-print(filter_by_description(list_trans, 'Открытие'))
+# print(filter_by_description(list_trans, 'Открытие'))
 
 
 def count_description(data_list: list[dict], list_category) -> dict:
+    """Функция подсчета по описанию """
     list_only_category = []
     result = []
     logger.info(f"Старт программы")
@@ -225,5 +226,5 @@ def count_description(data_list: list[dict], list_category) -> dict:
     except Exception as ex:
         logger.error(f"ОШИБКА: {ex}")
 
-
-print(count_description(list_trans, ['Перевод со счета на счет', 'Перевод с карты на карту']))
+#
+# print(count_description(list_trans, ['Перевод со счета на счет', 'Перевод с карты на карту']))

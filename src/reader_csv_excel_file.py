@@ -43,5 +43,5 @@ def open_excel(file_name: str) -> Any:
         logger.error(f"При считывании файла произошла ошибка {error}.")
 
 
-print(open_csv("transactions.csv"))
-print(open_excel("transactions_excel.xlsx"))
+# print(open_csv("transactions.csv"))
+# print(open_excel("transactions_excel.xlsx"))
