@@ -1,4 +1,5 @@
 import json
+import os
 from typing import Any
 
 from src.external_api import convert_from_to_rub
@@ -31,10 +32,13 @@ def transaction_amount(transactions: dict, transaction_id: int) -> Any:
                 return round(transaction, 2)
 
 
-src_data = "../data/operations.json"
-
-# print(get_read_json(src_data)[0])
-
-transactions_list = get_read_json(src_data)
-
-print(transaction_amount(transactions_list, 41428829))
+# src_data = "../data/operations.json"
+#
+# ll = get_read_json(src_data)
+#
+# print(ll[0])
+# path = os.getcwd()
+# print(path)
+# transactions_list = get_read_json(src_data)
+#
+# print(transaction_amount(transactions_list, 41428829))
