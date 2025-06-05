@@ -3,34 +3,45 @@ import pytest
 from src.category import Category
 from src.product import Product
 
+
 @pytest.fixture
 def category1():
     return Category(
-        name="Рыба",
-        description="Речная рыба",
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         products=[
-            Product("Окунь", "Речная рыба", 50.5, 3),
-            Product("Елец", "Речная рыба", 40.3, 19),
-            Product("Щука", "Речная рыба", 63.7, 11)
+            Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+            Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
         ]
     )
+
 
 @pytest.fixture
 def category2():
     return Category(
-        name="Мясо",
-        description="Мясная продукция",
+        name="Телевизоры",
+        description="Телевизоры, как средство для удобства жизни",
         products=[
-            Product("Свинина", "Свинная продукция", 550.5, 22),
-            Product("Говядина", "Говяжя продукция", 640.3, 19),
+            Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
         ]
     )
+
 
 @pytest.fixture
 def product():
     return Product(
-        name="Свинина",
-        description="Свинная продукция",
-        price=550.5,
-        quantity=22
+        name="Samsung Galaxy S23 Ultra",
+        description="256GB, Серый цвет, 200MP камера продукция",
+        price=180000.0,
+        quantity=5
     )
+
+
+@pytest.fixture
+def dict_product():
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5
+    }

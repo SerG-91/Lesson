@@ -3,9 +3,11 @@ import json
 from src.product import Product
 from src.category import Category
 
+
 def open_file(path_file: str) -> list:
     with open(path_file, encoding="utf-8") as file:
         return json.load(file)
+
 
 def created_object_from_json(json_file):
     categorys = []
@@ -16,6 +18,7 @@ def created_object_from_json(json_file):
             category['products'] = products
         categorys.append(Category(**category))
     return categorys
+
 
 if __name__ == "__main__":
     # path = "data/products.json"
@@ -77,28 +80,28 @@ if __name__ == "__main__":
     )
 
     print(category1.products)
+    print(category1.product_count)
     product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
     category1.add_product(product4)
     print(category1.products)
     print(category1.product_count)
 
-    # new_product = Product.new_product(
-    #     {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-    #      "quantity": 5})
-    # print(new_product.name)
-    # print(new_product.description)
+    new_product = Product.new_product(
+        {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+         "quantity": 5}, category1.get_product)
+    print(new_product.name)
+    print(new_product.description)
     # print(new_product.price)
-    # print(new_product.quantity)
+    print(new_product.coast)
+    print(new_product.quantity)
 
-    # new_product.price = 800
-    # print(new_product.price)
-    #
-    # new_product.price = -100
-    # print(new_product.price)
-    # new_product.price = 0
+    new_product.coast = 800
+    print(new_product.coast)
     # print(new_product.price)
 
-
-
-
-
+    new_product.coast = -100
+    # print(new_product.price)
+    print(new_product.coast)
+    new_product.coast = 10
+    # print(new_product.price)
+    print(new_product.coast)
