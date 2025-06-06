@@ -12,6 +12,14 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт"
+
+    def __add__(self, other):
+        if type(other) is Product:
+            return self.__price * self.quantity + other.__price * other.quantity
+        raise TypeError
+
     @classmethod
     def new_product(cls, dict_product, get_product):
         """Класс-метод по созданию нового продукта исключающий дубликаты имен"""

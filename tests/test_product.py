@@ -4,8 +4,8 @@ from src.product import Product
 def test_init(product):
     assert product.name == "Samsung Galaxy S23 Ultra"
     assert product.description == "256GB, Серый цвет, 200MP камера продукция"
-    assert product.coast == 180000.0
-    assert product.quantity == 5
+    assert product.coast == 210000.0
+    assert product.quantity == 8
 
 
 def test_create_new_product(dict_product, category1):
@@ -24,5 +24,12 @@ def test_create_new_product(dict_product, category1):
 
 def test_coast_below_zero(product):
     product.coast = -10
-    assert product.coast == 180000.0
+    assert product.coast == 210000.0
 
+
+def test_str(product):
+    assert str(product) == "Samsung Galaxy S23 Ultra, 210000.0 руб. Остаток: 8 шт"
+
+
+def test_add(product, product2):
+    assert product + product2 == 2580000.0
