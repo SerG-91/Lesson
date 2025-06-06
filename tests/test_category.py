@@ -32,4 +32,3 @@ def test_add_product_error(category1, product):
 def test_add_product(category1, product):
     category1.add_product(product)
     assert category1.products[-1].name == "Samsung Galaxy S23 Ultra"
-
