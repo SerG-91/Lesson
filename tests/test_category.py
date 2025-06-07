@@ -42,6 +42,5 @@ def test_middle_price(category1, category2):
 def test_QuantityError(capsys, category1, product2):
     category1.add_product(product2)
     message = capsys.readouterr()
-    print(message.out.strip().split("\n")[-2])
-    # assert message.out.strip().split("\n")[-1] == "Метод добавления продукта завершился"
-
+    # print(message.out.strip().split("\n")[-2])
+    assert message.out.strip().split("\n")[-1] == "Метод добавления продукта завершился"

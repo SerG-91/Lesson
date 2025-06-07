@@ -61,11 +61,8 @@ class Category:
             product_list += f"{prod.name}, {prod.coast} руб. Остаток: {prod.quantity} шт.\n"
         return product_list
 
-
     def middle_price(self):
         try:
             return round(sum([prod.coast for prod in self.__products]) / len(self.__products), 2)
         except ZeroDivisionError:
             return 0
-
-
