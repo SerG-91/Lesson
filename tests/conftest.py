@@ -24,9 +24,7 @@ def category2():
     return Category(
         name="Телевизоры",
         description="Телевизоры, как средство для удобства жизни",
-        products=[
-            Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
-        ]
+        products=[]
     )
 
 

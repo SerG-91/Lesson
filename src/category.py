@@ -1,5 +1,4 @@
-from itertools import product
-
+from src.QuantityError import QuantityError
 from src.product import Product
 
 
@@ -34,8 +33,17 @@ class Category:
     def add_product(self, product: Product):
         """Метод добавления нового продукта в приватный список продуктов"""
         if isinstance(product, Product):
-            self.get_product.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise QuantityError()
+            except QuantityError() as e:
+                print(str(e))
+            else:
+                self.get_product.append(product)
+                Category.product_count += 1
+                print(f"Добавление товара {product.name} прошло успешно")
+            finally:
+                print("Метод добавления продукта завершился")
         else:
             raise TypeError
 
@@ -59,6 +67,5 @@ class Category:
             return round(sum([prod.coast for prod in self.__products]) / len(self.__products), 2)
         except ZeroDivisionError:
             return 0
-        except:
-            return 0
+
 

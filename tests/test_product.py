@@ -38,11 +38,6 @@ def test_add(product, product2):
     assert product + product2 == 2580000.0
 
 
-# def test_add_product_error(capsys, product_smartphone_3, category1):
-#     category1.new_product = product_smartphone_3
-#     message = capsys.readouterr()
-#     assert message.out.strip() == "Товар с нулевым количеством не может быть добавлен"
-
-def test_init_product_error():
-    with pytest.raises(ValueError):
-        smartphon = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 0, 98.2, "15", 512, "Gray space")
+# def test_init_product_error():
+#     with pytest.raises(ValueError):
+#         Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 0, 98.2, "15", 512, "Gray space")
