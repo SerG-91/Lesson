@@ -18,5 +18,3 @@ def test_print_mixin(capsys):
 
 
 
-def test_print():
-
