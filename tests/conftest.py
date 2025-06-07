@@ -79,3 +79,8 @@ def product_grass_1():
 @pytest.fixture
 def product_grass_2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def product_smartphone_3():
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 0, 98.2, "15", 512, "Gray space")
